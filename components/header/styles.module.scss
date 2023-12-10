@@ -33,7 +33,7 @@
   &__list {
     display: flex;
     gap: 14px;
-    li {
+    .li {
       position: relative;
       display: flex;
       align-items: center;
@@ -118,6 +118,43 @@
   padding: 1em 0em;
   h4 {
     text-align: center;
+  }
+  .flex {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  ul {
+    li {
+      height: 30px;
+      font-size: small;
+      a {
+        width: 100%;
+        padding-left: 1rem;
+      }
+      &:hover {
+        background: #eeeeeebe;
+      }
+    }
+  }
+
+  &__img {
+    width: 60px !important;
+    height: 60px !important;
+    margin-right: 10px;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    span {
+      &:last-of-type {
+        font-size: 12px;
+        color: $blue-color;
+      }
+    }
   }
 }
 //-----------top styles ends------------------------------------

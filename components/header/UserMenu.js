@@ -7,11 +7,22 @@ const UserMenu = ({ loggedIn }) => {
     <div className={styles.menu}>
       <h4>Welcome to SazzShop</h4>
       {loggedIn ? (
-        <div> already logged in </div>
+        <div className={styles.flex}>
+          <img
+            src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"
+            alt="user-avatar"
+            className={styles.menu__img}
+          />
+          <div className={styles.col}>
+            <span>Welcome Back</span>
+            <h3>Shazid</h3>
+            <span>Sign out</span>
+          </div>
+        </div>
       ) : (
         <div className={styles.flex}>
-          <button>Register</button>
-          <button>Login</button>
+          <button className={styles.btn_primary}>Register</button>
+          <button className={styles.btn_outlined}>Login</button>
         </div>
       )}
       <ul>

@@ -7,39 +7,44 @@ import { RiAccountPinCircleLine, RiArrowDropDownFill } from "react-icons/ri";
 import UserMenu from "./UserMenu";
 
 const Top = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   return (
     <div className={styles.top}>
       <div className={styles.top__container}>
         <div></div>
         <ul className={styles.top__list}>
-          <li>
+          <li className={styles.li}>
             <img
               src="https://img.icons8.com/color/48/bangladesh.png"
               alt="flag-icon"
             />
             <span>Bangladesh / bdt</span>
           </li>
-          <li>
+          <li className={styles.li}>
             <MdSecurity />
             <span>Buyer Protection</span>
           </li>
-          <li>
+          <li className={styles.li}>
             <MdSecurity />
             <span>Customer Service</span>
           </li>
-          <li>
+          <li className={styles.li}>
             <MdSecurity />
             <span>Help</span>
           </li>
-          <li>
+          <li className={styles.li}>
             <BsSuitHeart />
             <span>Wishlists</span>
           </li>
-          <li>
+          <li
+            className={styles.li}
+            onMouseOver={() => setVisible(true)}
+            onMouseLeave={() => setVisible(false)}
+          >
             {loggedIn ? (
-              <li>
+              <li className={styles.li}>
                 <div className={styles.flex}>
                   <img
                     src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"
@@ -50,7 +55,7 @@ const Top = () => {
                 </div>
               </li>
             ) : (
-              <li>
+              <li className={styles.li}>
                 <div className={styles.flex}>
                   <RiAccountPinCircleLine />
                   <span>Account</span>
@@ -59,7 +64,7 @@ const Top = () => {
               </li>
             )}
 
-            <UserMenu loggedIn={loggedIn} />
+            {visible && <UserMenu loggedIn={loggedIn} />}
           </li>
         </ul>
       </div>
