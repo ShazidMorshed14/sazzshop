@@ -20,7 +20,7 @@ const Top = () => {
               src="https://img.icons8.com/color/48/bangladesh.png"
               alt="flag-icon"
             />
-            <span>Bangladesh / bdt</span>
+            <span>Bangladesh / BDT</span>
           </li>
           <li className={styles.li}>
             <MdSecurity />

@@ -29,3 +29,9 @@ $gray-color: #f8f8f8;
   border-radius: 2px;
   font-size: small;
 }
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
