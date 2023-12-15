@@ -1,12 +1,16 @@
-import axios from "axios";
 import Footer from "../components/footer";
 import Header from "../components/header";
-import styles from "../styles/Home.module.scss";
+import axios from "axios";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Home({ country }) {
+  const { data: session } = useSession();
+  console.log(session);
+
   return (
     <div>
       <Header country={country} />
+      {session ? "you are logged in" : "you are not logged in"}
       <Footer />
     </div>
   );
