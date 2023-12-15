@@ -6,7 +6,7 @@ import { BsSuitHeart } from "react-icons/bs";
 import { RiAccountPinCircleLine, RiArrowDropDownFill } from "react-icons/ri";
 import UserMenu from "./UserMenu";
 
-const Top = () => {
+const Top = ({ country }) => {
   const [loggedIn, setLoggedIn] = useState(true);
   const [visible, setVisible] = useState(false);
 
@@ -16,11 +16,8 @@ const Top = () => {
         <div></div>
         <ul className={styles.top__list}>
           <li className={styles.li}>
-            <img
-              src="https://img.icons8.com/color/48/bangladesh.png"
-              alt="flag-icon"
-            />
-            <span>Bangladesh / BDT</span>
+            <img src={country?.flag} alt="flag-icon" />
+            <span>{country?.name} / BDT</span>
           </li>
           <li className={styles.li}>
             <MdSecurity />
