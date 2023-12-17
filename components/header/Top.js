@@ -5,9 +5,10 @@ import { MdSecurity } from "react-icons/md";
 import { BsSuitHeart } from "react-icons/bs";
 import { RiAccountPinCircleLine, RiArrowDropDownFill } from "react-icons/ri";
 import UserMenu from "./UserMenu";
+import { useSession } from "next-auth/react";
 
 const Top = ({ country }) => {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const { data: session } = useSession();
   const [visible, setVisible] = useState(false);
 
   return (
@@ -40,14 +41,11 @@ const Top = ({ country }) => {
             onMouseOver={() => setVisible(true)}
             onMouseLeave={() => setVisible(false)}
           >
-            {loggedIn ? (
+            {session ? (
               <li className={styles.li}>
                 <div className={styles.flex}>
-                  <img
-                    src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"
-                    alt="user-avatar"
-                  />
-                  <span>Shazid</span>
+                  <img src={session?.user?.image} alt="user-avatar" />
+                  <span>{session?.user?.name}</span>
                   <RiArrowDropDownFill />
                 </div>
               </li>
@@ -61,7 +59,7 @@ const Top = ({ country }) => {
               </li>
             )}
 
-            {visible && <UserMenu loggedIn={loggedIn} />}
+            {visible && <UserMenu session={session} />}
           </li>
         </ul>
       </div>
